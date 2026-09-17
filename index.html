@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para mi Arqui 🌻</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .intro-page {
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(220, 180, 45, .13),
+                    transparent 30%
+                ),
+                #050505;
+
+            color: white;
+            position: relative;
+        }
+
+        .intro-page::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(255, 210, 70, .035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 210, 70, .035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            from {
+                background-position: 0 0, 0 0;
+            }
+
+            to {
+                background-position: 70px 70px, 70px 70px;
+            }
+        }
+
+        .intro-content {
+            position: relative;
+            z-index: 5;
+
+            width: min(800px, 90%);
+            text-align: center;
+        }
+
+        .intro-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 6px;
+            color: #dabb45;
+            margin-bottom: 35px;
+        }
+
+        .intro-content h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(55px, 10vw, 110px);
+            line-height: .95;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .intro-content h1 span {
+            color: #dfbd4b;
+        }
+
+        .intro-line {
+            width: 90px;
+            height: 1px;
+            background: #dabb45;
+            margin: 40px auto;
+        }
+
+        .intro-message {
+            font-family: 'Montserrat', sans-serif;
+            color: #999;
+            line-height: 1.9;
+            font-size: 15px;
+            max-width: 580px;
+            margin: auto;
+        }
+
+        .intro-button {
+            margin-top: 45px;
+
+            padding: 16px 35px;
+
+            background: transparent;
+
+            border: 1px solid rgba(222, 190, 65, .55);
+
+            color: #e0c04d;
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            cursor: pointer;
+
+            transition: .4s;
+        }
+
+        .intro-button:hover {
+            background: rgba(222, 190, 65, .1);
+
+            box-shadow:
+                0 0 35px
+                rgba(222, 190, 65, .15);
+
+            transform: translateY(-4px);
+        }
+
+        .intro-flower {
+            position: absolute;
+            font-size: 75px;
+            opacity: .6;
+            filter:
+                drop-shadow(
+                    0 0 15px
+                    rgba(255, 210, 50, .25)
+                );
+
+            animation:
+                introFloat 5s ease-in-out infinite;
+        }
+
+        .intro-flower.one {
+            left: 7%;
+            top: 15%;
+        }
+
+        .intro-flower.two {
+            right: 8%;
+            top: 20%;
+            animation-delay: 1s;
+        }
+
+        .intro-flower.three {
+            left: 12%;
+            bottom: 12%;
+            animation-delay: 2s;
+        }
+
+        .intro-flower.four {
+            right: 12%;
+            bottom: 10%;
+            animation-delay: 3s;
+        }
+
+        @keyframes introFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .intro-content h1 {
+                font-size: 55px;
+            }
+
+            .intro-message {
+                font-size: 13px;
+            }
+
+            .intro-flower {
+                font-size: 45px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="intro-page">
+
+    <div class="intro-flower one">🌻</div>
+    <div class="intro-flower two">🌻</div>
+    <div class="intro-flower three">🌻</div>
+    <div class="intro-flower four">🌻</div>
+
+
+    <main class="intro-content">
+
+        <div class="intro-number">
+            21 · 09 · 2026
+        </div>
+
+        <h1>
+            Para mi<br>
+            <span>Arqui.</span>
+        </h1>
+
+        <div class="intro-line"></div>
+
+        <p class="intro-message">
+            Una pequeña sorpresa hecha especialmente
+            para una persona que convirtió la amistad
+            en algo realmente especial.
+        </p>
+
+        <button
+            class="intro-button"
+            id="startButton">
+
+            ENTRAR A LA SORPRESA 🌻
+
+        </button>
+
+    </main>
+
+
+    <script>
+
+        const startButton =
+            document.getElementById("startButton");
+
+        startButton.addEventListener("click", () => {
+
+            startButton.textContent =
+                "ABRIENDO... 🌻";
+
+            startButton.style.pointerEvents =
+                "none";
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "flores.html";
+
+            }, 700);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
